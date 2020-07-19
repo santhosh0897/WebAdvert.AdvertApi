@@ -1,7 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>Santhosh Balaji</Authors>
+    <RepositoryUrl>https://github.com/santhosh0897/WebAdvert.AdvertApi</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/santhosh0897/WebAdvert.AdvertApi</PackageProjectUrl>
+    <Product>Advert Api</Product>
+    <PackageId>AdvertApi.Models.MyExample</PackageId>
   </PropertyGroup>
 
 </Project>

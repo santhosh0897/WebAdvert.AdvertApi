@@ -26,7 +26,14 @@ namespace AdvertApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddAutoMapper();
+            var mappingconfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AdvertProfile());
+            });
+
+            IMapper mapper = mappingconfig.CreateMapper();
+
+            services.AddSingleton(mapper);
             services.AddTransient<IAdvertStorageService, DynamoDbStorageService>();
             services.AddControllers();
         }
