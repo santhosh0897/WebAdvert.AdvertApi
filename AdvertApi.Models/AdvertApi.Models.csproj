@@ -7,6 +7,7 @@
     <PackageProjectUrl>https://github.com/santhosh0897/WebAdvert.AdvertApi</PackageProjectUrl>
     <Product>Advert Api</Product>
     <PackageId>AdvertApi.Models.MyExample</PackageId>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
 </Project>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdvertApi.HealthChecks;
 using AdvertApi.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
@@ -31,11 +32,19 @@ namespace AdvertApi
                 mc.AddProfile(new AdvertProfile());
             });
 
-            IMapper mapper = mappingconfig.CreateMapper();
 
+          
+            IMapper mapper = mappingconfig.CreateMapper();
+           
             services.AddSingleton(mapper);
             services.AddTransient<IAdvertStorageService, DynamoDbStorageService>();
+            services.AddTransient<StorageHealthCheck>();
+            services.AddHealthChecks().AddCheck<StorageHealthCheck>("Storage");
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers();
+            
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +59,7 @@ namespace AdvertApi
 
             app.UseAuthorization();
 
+           app.UseHealthChecks("/health");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

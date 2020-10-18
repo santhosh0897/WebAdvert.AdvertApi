@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AdvertApi.Services
 {
 
-    [DynamoDBTable("Advert")]
+    [DynamoDBTable("Adverts")]
     public class AdvertDbModel
     {
       
